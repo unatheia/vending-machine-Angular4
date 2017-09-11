@@ -8,7 +8,8 @@ import { Inventory } from './inventory.model';
 })
 export class UserRequestComponent {
 
-  public inventory: Inventory;
+  private inventory: Inventory;
+  private askedSumAndCurrency: string;
   private totalCoinsReturned: number;
   private specificCoinsReturned: number;
   private currencyDenomination: number;
@@ -22,21 +23,31 @@ export class UserRequestComponent {
     this.inventory.currency = 'cent';
   }
 
-  //sets correct name for currency
+  //sets correct name for currency,
   setCurrency(amount: any): string {
     this.currencyName = this.inventory.currency;
     if(amount > 1) {
       this.currencyName = 'cents';
       console.log('currency must be set to cents ', this.currencyName);
     }
+    // amount is in pence, split by 100 to get pounds
     if(amount >= 100) {
       amount = amount/100;
       this.currencyName = 'pounds';
       console.log('currency must be set to pounds ', this.currencyName);
 
     }
-    return amount + this.currencyName;
+    return amount + '' + this.currencyName;
   }
+
+  //split by 10 and if bigger than 1, split by 10, if bigger than 1,
+
+
+  getlength(number: number): number {
+    return Math.trunc(number.toString().length); // 45565 = 5
+  }
+
+
 
   calculateOptimalChange(reqSum: HTMLInputElement): any  {
     this.afterSubmit = true;
@@ -48,9 +59,9 @@ export class UserRequestComponent {
 
     //convert currency
     if(reqSum) {
-      let converted = this.setCurrency(reqSum.value);
-      console.log('converted currency', converted);
-      return converted;
+      this.askedSumAndCurrency = this.setCurrency(reqSum.value);
+      console.log('converted currency', this.askedSumAndCurrency);
+      return this.askedSumAndCurrency;
     }
 
   }
