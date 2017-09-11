@@ -1,0 +1,10 @@
+<form>
+  <input type="number" #userMoneyRequest>
+
+  <div (click)=calculateOptimalChange(userMoneyRequest)>Get change</div>
+</form>
+
+<div *ngIf="afterSubmit">
+  <p>You asked for {{userMoneyRequest.value}} </p>
+  <p>Your change is:  </p>
+</div>
