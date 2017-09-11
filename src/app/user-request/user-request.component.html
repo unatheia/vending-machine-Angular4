@@ -1,4 +1,5 @@
 <form>
+  <label for="title">Please insert sum</label>
   <input type="number" #userMoneyRequest>
 
   <div (click)=calculateOptimalChange(userMoneyRequest)>Get change</div>
@@ -6,5 +7,9 @@
 
 <div *ngIf="afterSubmit">
   <p>You asked for {{userMoneyRequest.value}} </p>
-  <p>Your change is:  </p>
+  <div>Your change is:
+    <p>Total coins {{totalCoinsReturned}}</p>
+    <!-- 4 coins -->
+    <p>{{specificCoinsReturned}} coins of {{currencyDenomination}} {{currencyName}}.</p>
+    <!-- 2 of 20 cents. -->
 </div>
