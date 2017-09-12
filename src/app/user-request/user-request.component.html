@@ -2,14 +2,16 @@
   <label for="title">Please insert sum</label>
   <input type="number" #userMoneyRequest>
 
-  <div (click)=calculateOptimalChange(userMoneyRequest)>Get change</div>
+  <div (click)=calculateOptimalChange(amountToNumber(userMoneyRequest))>Get change</div>
 </form>
 
 <div *ngIf="afterSubmit">
   <p>You asked for {{askedSumAndCurrency}} </p>
   <div>Your change is:
-    <p>Total coins {{totalCoinsReturned}}</p>
     <!-- 4 coins -->
-    <p>{{numOfEachCoinsReturned}} coins of {{currencyDenomination}} {{currencyName}}.</p>
-    <!-- 2 of 20 cents. -->
+    <ul>
+      <li *ngFor="let coin of change">
+        {{coin.coinsNumber}} coins of {{coin.coinsDenoms}}
+      </li>
+    </ul>
 </div>
