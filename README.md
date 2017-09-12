@@ -23,21 +23,12 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 Before running the tests make sure you are serving the app via `ng serve`.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
-
-Problem to solve>>>>
+## Problem to solve >>>>
 Implement the logic for a vending machine that will return the optimal change for a given number of pence.
 This should be presented either a standalone function or class method.
 
 Assume an unlimited supply of coins.
 This method should return the least number of coins possible
 The following denominations of coin are to be used
-One pound = 100p
-Fifty pence = 50p
-Twenty pence = 20p
-Ten pence = 10p
-Five pence = 5p
-Two pence = 2p
-One penny = 1p
+One pound = 100p; Fifty pence = 50p; Twenty pence = 20p; Ten pence = 10p; Five pence = 5p; Two pence = 2p; One penny = 1p
