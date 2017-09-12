@@ -8,7 +8,6 @@
 <div *ngIf="afterSubmit">
   <p>You asked for {{askedSumAndCurrency}} </p>
   <div>Your change is:
-    <!-- 4 coins -->
     <ul>
       <li *ngFor="let coin of change">
         {{coin.coinsNumber}} coins of {{coin.coinsDenoms}}

@@ -4,8 +4,7 @@ import { Change } from './change.model';
 
 @Component({
   selector: 'app-user-request',
-  templateUrl: './user-request.component.html',
-  styleUrls: ['./user-request.component.css']
+  templateUrl: './user-request.component.html'
 })
 export class UserRequestComponent {
 
@@ -48,7 +47,6 @@ export class UserRequestComponent {
     this.afterSubmit = true;
     this.askedSumAndCurrency = this.setCurrency(reqSum);
     this.change = this.getChangeAmountAndValues(reqSum);
-    console.log('change is ', this.change)
     return this.change;
   }
 
