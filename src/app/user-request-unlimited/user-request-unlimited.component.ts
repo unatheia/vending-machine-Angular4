@@ -6,7 +6,7 @@ import { Change } from './change.model';
   selector: 'app-user-request',
   templateUrl: './user-request.component.html'
 })
-export class UserRequestComponent {
+export class UserRequestUnlimitedComponent {
 
   private inventory: Inventory;
   private change: Change[];
