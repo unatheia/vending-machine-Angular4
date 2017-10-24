@@ -3,8 +3,8 @@ import { Inventory } from './inventory.model';
 import { Change } from './change.model';
 
 @Component({
-  selector: 'app-user-request',
-  templateUrl: './user-request.component.html'
+  selector: 'app-user-request-unlimited',
+  templateUrl: './user-request-unlimited.component.html'
 })
 export class UserRequestUnlimitedComponent {
 
@@ -30,6 +30,7 @@ export class UserRequestUnlimitedComponent {
   getChangeAmountAndValues(value): Change[] {
     let result: Change[] = [];
     let denoms = this.inventory.denominations;
+    console.log('in gen change')
     for(let i = denoms.length-1; i >= 0 ; i--) {
       if(value >= denoms[i]) {
         let wholeValue: number = Math.trunc(value/denoms[i]);
