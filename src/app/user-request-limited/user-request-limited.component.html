@@ -2,7 +2,7 @@
   <label for="title">Please insert sum</label>
   <input type="number" #userMoneyRequest>
 
-  <div (click)=calculateOptimalChange(amountToNumber(userMoneyRequest))>Get change</div>
+  <div class="button" (click)=calculateOptimalChange(amountToNumber(userMoneyRequest))>Get change</div>
 </form>
 
 <div *ngIf="afterSubmit">
