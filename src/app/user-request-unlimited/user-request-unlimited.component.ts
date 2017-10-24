@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { Inventory } from './inventory.model';
-import { Change } from './change.model';
+import { Inventory } from '../interfaces/inventory.model';
+import { Change } from '../interfaces/change.model';
+import { setCurrency } from '../helpers/helpers.component';
 
 @Component({
   selector: 'app-user-request-unlimited',
@@ -46,23 +47,9 @@ export class UserRequestUnlimitedComponent {
 
   calculateOptimalChange(reqSum: number): Change[] {
     this.afterSubmit = true;
-    this.askedSumAndCurrency = this.setCurrency(reqSum);
+    this.askedSumAndCurrency = setCurrency(reqSum, this.currencyName, this.inventory.currency);
     this.change = this.getChangeAmountAndValues(reqSum);
     return this.change;
   }
-
-  // sets correct name for currency,
-  setCurrency(amount: any): string {
-    this.currencyName = this.inventory.currency;
-    if(amount > 1) {
-      this.currencyName = ' cents';
-    }
-    if(amount >= 100) {
-      amount = amount/100;
-      this.currencyName = ' pounds';
-    }
-    return amount + this.currencyName;
-  }
-
 
 }
