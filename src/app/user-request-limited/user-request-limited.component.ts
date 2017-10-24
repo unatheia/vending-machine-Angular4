@@ -20,7 +20,6 @@ export class UserRequestLimitedComponent {
   constructor() {
     this.inventory = new Inventory();
     this.wallet = {1: 23, 2: 11, 5: 200, 10: 99, 20: 0, 50: 24, 100: 11};
-    // 100 = 11; 50 = 24; 20 = 0; 10 = 99; 5 = 200; 2 = 11; 1 = 23
   }
 
   // convert input value to number
@@ -37,24 +36,6 @@ export class UserRequestLimitedComponent {
     return walletValue;
   }
 
-  // longer version of getBiggestDenom
-  // getBiggestDenom(): number {
-  //   let denomsArray = [];
-  //
-  //   for (var key in this.wallet) {
-  //     denomsArray.push(parseInt(key));
-  //     console.log('denomsArray', denomsArray);
-  //   }
-  //   let biggestDenom = denomsArray[0];
-  //
-  //   for(let i=0; i<denomsArray.length; i++) {
-  //     if(denomsArray[i] > biggestDenom) {
-  //       biggestDenom = denomsArray[i];
-  //     }
-  //   }
-  //   return biggestDenom;
-  // }
-
   //efficient version of getBiggestDenom
   // gets biggest denomination available in inventory - with quantity bigger than 0
   getBiggestAvailableDenom(value: number): number {
@@ -67,18 +48,6 @@ export class UserRequestLimitedComponent {
     }
     return max;
   }
-
-  getMax(): number {
-    let max = -1;
-    for (var key in this.wallet) {
-      let denom = parseInt(key);
-      if(denom > max) {
-        max = denom;
-      }
-    }
-    return max;
-  }
-
 
   getChangeAmountAndValues(value):  Change[] {
     let result = {1: 0, 2: 0, 5: 0, 10: 0, 20: 0, 50: 0, 100: 0};
